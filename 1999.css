@@ -1,0 +1,297 @@
+/* years.css */
+@font-face {
+    font-family: 'Sans-bold';
+    src: url('./fonts/SourceHanSansCN-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sans-normal';
+    src: url('./fonts/SourceHanSansCN-Normal.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('./fonts/江城律动宋.ttf') format('truetype');
+    font-display: swap;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.jumbotron {
+    margin-left: -70px;
+    margin-right: -70px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: inherit;
+    background-color: #eeeeee00;
+}
+.jumbotron h1{
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+    font-family: 'Sans-bold', sans-serif;
+    font-size: 36px;
+    color: #000000;
+    border-bottom: 2px solid #000;
+    margin: 0 2rem;
+}
+
+
+.breadcrumb {
+    padding: 15px 15px;
+    font-family: 'Sans-bold', sans-serif;
+    margin-bottom: 0px;
+    font-size: 14px;
+    background: white;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+/* Custom Styles */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #dddddd00;
+    border-bottom-color: transparent;
+}
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+    background: #e3f2fd;       
+    border-left: 4px solid transparent;
+    border-left-color: #2196f3;
+    color: #1976d2;
+    border-radius: 4px;
+}
+ul.nav-tabs li.sub-nav-item.active a,ul.nav-tabs li.sub-nav-item.active a:hover{
+    background: #e3f2fd;       
+    border-left: 4px solid transparent;
+    border-left-color: #2196f3;
+    color: #1976d2;
+    border-radius: 4px;
+}
+ul.nav-tabs{
+    width: 210px;
+    margin-top: 10px;
+    border-radius: 4px;
+    /* border: 1px solid #ddd; */
+    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); */
+}
+ul.nav-tabs li{
+    margin: 0;
+    /* border-top: 1px solid #ddd; */
+}
+ul.nav-tabs li:first-child{
+    border-top: none;
+}
+
+ul.nav-tabs li a{
+    font-family: 'Sans-bold';
+    color: #000000;
+    font-size: 20px;
+    margin: 0;
+    padding: 8px 5px;
+    border-radius: 0;
+    border-bottom: #66666693 1px solid;    
+    border-left: 4px solid transparent;
+}
+ul.nav-tabs li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+ul.nav-tabs li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
+ul.nav-tabs.affix{
+    top: 30px; /* Set the top position of pinned element */
+}
+/* 方案一：提高选择器特异性 */
+ul.nav-tabs li.sub-nav-item a {
+    font-size: 16px !important;  /* 覆盖原18px */
+    padding-left: 35px;          /* 原16px */
+    font-weight: 500;
+    color:#000000;
+    border-bottom: #66666693 1px solid;  
+    border-left: 4px solid transparent;
+}
+.col-xs-3 {
+    width: 28%;
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 60px;
+    margin-right: 0px;
+    border-bottom: #66666600 0px solid; 
+}
+
+.col-xs-9 {
+    width: 72%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 60px;
+    padding-left: 15px;
+}
+.col-xs-9 h2 {
+    font-family: 'Sans-bold', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 0rem;
+}
+.right-sub-title {
+    font-family: 'Sans-bold', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 0rem;
+}
+.right-text {
+    font-family: 'Sans-normal', sans-serif;
+    padding-right: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000000;
+    text-indent: 2em;
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 1rem;
+}
+
+/* 优化后的图片布局系统 */
+.img-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 单图模式 */
+.img-group:has(> :only-child) {
+    display: inline-block;
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.img-group:has(> :only-child) .right-image {
+    width: 60%;
+    max-width: none;
+    margin: 0 auto;
+}
+.img-group:has(> :only-child) .image-caption {
+    display: inline-block;
+
+    font-family: 'Sans-normal', sans-serif;
+    font-size: 1.4rem;
+    color: #000000;
+    text-align: center;
+    width: 60%;
+    margin-top: 0.5rem;
+    padding: 0 ;
+}
+
+/* 双图模式 */
+.img-group:has(> *:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+}
+.img-group:has(> *:nth-child(2):last-child) .right-image {
+    width: 100% !important;
+    height: auto;
+}
+
+/* 图片标题统一样式 */
+.image-caption {
+    font-family: 'Sans-normal', sans-serif;
+    font-size: 1.4rem;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    padding: 0 ;
+}
+.right-image {
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: #fff;
+    padding: 0.5rem;
+}
+.right-image:hover {
+    transform: translateY(-3px);
+}
+
+/* 底部导航栏样式 */
+.bottom-nav {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: #e3f2fd;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #cfd8dc;
+    z-index: 5;
+    /* border-radius: 12px; */
+
+}
+.bottom-nav a {
+    font-family: 'CustomFont', sans-serif;
+    font-size: 10rem;
+    color: #000000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.year-title-container {
+    text-align: center;
+    z-index: 4;
+    transition: all 0.3s ease;
+    /* 新增控制边距的部分 */
+    width: 100%;
+    /* 控制左右边距总和为40px */
+    max-width: calc(100% ); 
+    padding: 0px; /* 控制文字与容器边缘间距 */
+    box-sizing: border-box; /* 防止padding影响容器尺寸 */
+}
+.year {
+    margin-top: 5px;
+    font-family: 'CustomFont', sans-serif;
+    font-size: 18px;
+    color:#000000;
+    font-weight: bold;
+    line-height: 35px;
+    transition: opacity 0.3s ease;
+}
+.subtitle {
+    font-family: 'CustomFont', sans-serif;
+    font-size: 12px;
+    color: #000000;
+    margin-top: -5px;
+    text-align: center;
+    line-height: 1.2;
+    transition: opacity 0.3s ease;
+    margin-bottom: 10px;
+}
+.bottom-nav a:hover {
+    background: #bbdefb;
+    color: #1565c0;
+}
