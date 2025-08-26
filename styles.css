@@ -28,6 +28,9 @@
     color: inherit; /* 继承父级文字颜色 */
     cursor: pointer; /* 保持手指指针 */
 }
+.mobile-bg {
+            display: none;
+        }
 
 .timeline-item::before {
     content: '';
@@ -38,9 +41,9 @@
     bottom: 0;
     background: linear-gradient(to bottom, 
         rgba(97, 137, 203, 0) 0%,
-        rgba(4, 99, 193, 1) 100%
+        rgb(65, 115, 165) 100%
     );
-    opacity: 0.7;
+    opacity: 0.9;
     z-index: 2;
     transition: all 0.3s ease;
     border-radius: 12px;
@@ -91,7 +94,7 @@
     color: rgb(255, 255, 255);
     margin-bottom: 25px;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 50px;
     transition: opacity 0.3s ease;
 }
 
@@ -126,7 +129,7 @@
     transform: none;
     background: linear-gradient(to right,
         rgba(61, 133, 203, 0) 0%,
-        rgba(61, 133, 203, 0.9) 100%
+        rgba(61, 133, 203, 0.7) 100%
     );
     padding: 10px 20px;
     text-align: right;
@@ -191,39 +194,12 @@
     opacity: 1;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, 
-        rgba(97, 137, 203, 0) 0%,
-        rgba(4, 99, 193, 1) 100%
-    );
-    opacity: 0.75;
-}
 
 .timeline-item:hover .year-title-container {
     border-radius: 0;
 }
 
-/* 修改选择器，确保所有非悬停项目都能显示灰色蒙版
-.timeline-item:hover ~ .timeline-item::after,
-.timeline-item:has(~ :hover)::after {
-    opacity: 1;
-} */
 
-/* 或者使用这个更简单的方案
-.timeline-container:has(.timeline-item:hover) .timeline-item:not(:hover)::after {
-    opacity: 1;
-} */
-
-/* 当有项目被悬停时，其他项目的文字轻微变暗 *//* 轻微降低不透明度，使文字看起来稍微暗一点 */
-/* .timeline-container:has(.timeline-item:hover) .timeline-item:not(:hover) .year,
-.timeline-item:has(.timeline-item:hover) .timeline-item:not(:hover) .title {
-    opacity: 0.7; 
-} */
 
 /* 悬停时移除模糊效果 */
 .timeline-item:hover .background-image {
