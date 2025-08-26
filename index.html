@@ -9,85 +9,121 @@
 <style>
        /* 新增：移动端优化 */
         @media (max-width: 768px) {
+             .desktop-bg {
+                display: none;
+            }
+            
+            .mobile-bg {
+                display: block;
+            }
             .timeline-container {
                 flex-direction: column;
                 height: auto;
                 padding: 15px;
                 margin: 40px auto;
-                gap: 15px;
-            }
-            
+                gap: 5px;
+            }            
             .timeline-item {
                 flex: none;
                 height: 100px;
                 width: 100%;
-            }
-            
+            }            
             .year {
-                font-size: 28px;
+                font-size: 24px;
                 margin-bottom: 10px;
                 line-height: 30px;
-            }
-            
-            .title {
-                font-size: 16px;
-            }
-            
-            /* 关键修改：完全禁用移动端悬停效果 */
+            }           
+                     
+            /* 完全禁用移动端悬停效果 */
             .timeline-item:hover,
-            .timeline-item:active {
+            .timeline-item:active,
+            .timeline-item:focus {
                 transform: none !important;
                 box-shadow: none !important;
                 z-index: auto !important;
             }
             
             .timeline-item:hover::before,
-            .timeline-item:active::before {
+            .timeline-item:active::before,
+            .timeline-item:focus::before {
                 opacity: 0.7 !important;
             }
             
             .timeline-item:hover .year-title-container,
-            .timeline-item:active .year-title-container {
+            .timeline-item:active .year-title-container,
+            .timeline-item:focus .year-title-container {
                 top: 50% !important;
                 left: 50% !important;
-                transform: translate(-50%, -190%) !important;
+                transform: translate(-50%, -50%) !important;
+                text-align: right !important;
                 background: none !important;
                 padding: 0 !important;
-                text-align: center !important;
+                border-radius: 0 !important;
             }
             
             .timeline-item:hover .year,
-            .timeline-item:active .year {
-                font-size: 28px !important;
-                margin-bottom: 10px !important;
-                margin-right: 0 !important;
-                text-align: center !important;
+            .timeline-item:active .year,
+            .timeline-item:focus .year {
+                font-size: 24px;
+                margin-bottom: 10px;
+                line-height: 30px;
             }
             
-            .timeline-item:hover .title,
-            .timeline-item:active .title {
-                font-size: 16px !important;
-                max-width: none !important;
-                text-align: center !important;
-                white-space: normal !important;
-                margin-right: 0 !important;
-                margin-top: 0 !important;
-                float: none !important;
+            .timeline-item:hover .title {
+                font-size: 15px;
+                max-width: 100%;
+                text-align: right;             
             }
+
             
-            .timeline-item:hover .background-image,
-            .timeline-item:active .background-image {
+            .timeline-container:has(.timeline-item:hover) .timeline-item:not(:hover) .background-image,
+            .timeline-container:has(.timeline-item:active) .timeline-item:not(:active) .background-image,
+            .timeline-container:has(.timeline-item:focus) .timeline-item:not(:focus) .background-image {
                 filter: blur(2px) !important;
             }
-            
-            /* 优化年份范围显示 */
-            .year-range {
-                display: block;
-                text-align: center;
-                width: 100%;
-                margin-top: -10px;
+        
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to right, 
+                    rgba(97, 137, 203, 0) 0%,
+                    rgb(65, 115, 165) 100%
+                );
+                opacity: 0.8;
+                z-index: 2;
+                /* transition: all 0.0s ease; */
+                border-radius: 12px;
             }
-        }
+            .year-title-container {
+                position: absolute;
+                /* top: 50%; */
+                /* left: 50%; */
+                /* transform: translate(-50%, -50%); */
+                text-align: right;
+                z-index: 4;
+                transition: all 0.3s ease;                
+                /* 新增控制边距的部分 */
+                width: 90%;
+                /* 控制左右边距总和为40px */
+                max-width: calc(100% ); 
+                padding: 0px; /* 控制文字与容器边缘间距 */
+                box-sizing: border-box; /* 防止padding影响容器尺寸 */
+            }
+            .title {
+                font-family: 'CustomFont', sans-serif;
+                font-size: 14px;
+                color: white;
+                /* max-width: 200px; */
+                text-align: right;
+                line-height: 1.4;
+                transition: opacity 0.3s ease;
+            }
+        
 
         /* 移动端导航样式 */
         .mobile-header {
@@ -99,7 +135,7 @@
             font-family: 'CustomFont', sans-serif;
             position: relative;
         }
-        
+        }
         @media (max-width: 768px) {
             .mobile-header {
                 display: block;
@@ -109,7 +145,7 @@
                 font-size: 20px;
                 margin: 0;
             }
-        }
+        
         
         /* 页脚样式 */
         .footer {
@@ -120,7 +156,7 @@
             font-family: 'CustomFont', sans-serif;
             display: none;
         }
-        
+        }
         @media (max-width: 768px) {
             .footer {
                 display: block;
@@ -130,37 +166,44 @@
 <body>
     <div class="timeline-container">
         <a href="1931.html" class="timeline-item">
-            <img class="background-image" src="./images/head/1931.jpg" alt="1931背景">
+            <img class="background-image desktop-bg" src="./images/head/1931.jpg" alt="1931背景">
+            <img class="background-image mobile-bg" src="./images/media/1931.jpg" alt="1931背景">
             <div class="year-title-container">
                 <div class="year">1931</div>
                 <div class="title">大上海计划</div>
             </div>
         </a>
         <a href="1946.html" class="timeline-item">
-            <img class="background-image" src="./images/head/1946.jpg" alt="1946背景">
+            <img class="background-image desktop-bg" src="./images/head/1946.jpg" alt="1946背景">
+            <img class="background-image mobile-bg" src="./images/media/1946.jpg" alt="1946背景">
             <div class="year-title-container">
                 <div class="year">1946</div>
                 <div class="title">大上海都市计划</div>
             </div>
         </a>
         <a href="1959.html" class="timeline-item">
-            <img class="background-image" src="./images/head/1959.jpg" alt="1959背景">
+            <img class="background-image desktop-bg" src="./images/head/1959.jpg" alt="1959背景">
+            <img class="background-image mobile-bg" src="./images/media/1959.jpg" alt="1959背景">
             <div class="year-title-container">
                 <div class="year">1959</div>
-                <div class="title">关于上海城市<br/> 总体规划的初步意见</div>
+                <div class="title desktop-bg">关于上海城市<br/> 总体规划的初步意见</div>
+                <div class="title mobile-bg">关于上海城市总体规划的初步意见</div>
                 <!-- <div class="title">关于上海城市总体规划的初步意见</div> -->
             </div>
         </a>
         <a href="1986.html" class="timeline-item">
-            <img class="background-image" src="./images/head/1986.jpg" alt="1986背景">
+            <img class="background-image desktop-bg" src="./images/head/1986.jpg" alt="1986背景">
+            <img class="background-image mobile-bg" src="./images/media/1986.jpg" alt="1986背景">
             <div class="year-title-container">
                 <div class="year">1986</div>
-                <div class="title">上海市城市<br/>总体规划方案</div>
+                <div class="title desktop-bg">上海市城市<br/>总体规划方案</div>
+                <div class="title mobile-bg">上海市城市总体规划方案</div>
                 <!-- <div class="title">上海市城市总体规划方案</div> -->
             </div>
         </a>
         <a href="1999.html" class="timeline-item">
-            <img class="background-image" src="./images/head/1999.jpg" alt="1999背景">
+            <img class="background-image desktop-bg" src="./images/head/1999.jpg" alt="1999背景">
+            <img class="background-image mobile-bg" src="./images/media/1999.jpg" alt="1999背景">
             <div class="year-title-container">
                 <div class="year">&nbsp;&nbsp;1999—2020</div>
                 <!-- <div class="year">&nbsp;&nbsp;1999</div> -->
@@ -168,8 +211,9 @@
                 <div class="title">上海市城市总体规划</div>
             </div>
         </a>
-        <a href="2035.html" class="timeline-item">
-            <img class="background-image" src="./images/head/2035.jpg" alt="2017背景">
+        <a href="https://shanghai.tianditu.gov.cn/zg/2035/index.html#/" class="timeline-item">
+            <img class="background-image desktop-bg" src="./images/head/2035.jpg" alt="2017背景">
+            <img class="background-image mobile-bg" src="./images/media/2035.jpg" alt="2017背景">
             <div class="year-title-container">
                 <div class="year">&nbsp;&nbsp;2017—2035</div>
                 <!-- <div class="year">&nbsp;&nbsp;2017</div>
