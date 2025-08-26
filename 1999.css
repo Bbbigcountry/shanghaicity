@@ -4,13 +4,11 @@
     src: url('./fonts/SourceHanSansCN-Bold.ttf') format('truetype');
     font-display: swap;
 }
-
 @font-face {
     font-family: 'Sans-normal';
     src: url('./fonts/SourceHanSansCN-Normal.ttf') format('truetype');
     font-display: swap;
 }
-
 @font-face {
     font-family: 'CustomFont';
     src: url('./fonts/江城律动宋.ttf') format('truetype');
@@ -84,7 +82,7 @@ ul.nav-tabs li.sub-nav-item.active a,ul.nav-tabs li.sub-nav-item.active a:hover{
     border-radius: 4px;
 }
 ul.nav-tabs{
-    width: 210px;
+    width: 220px;
     margin-top: 10px;
     border-radius: 4px;
     /* border: 1px solid #ddd; */
@@ -127,18 +125,18 @@ ul.nav-tabs li.sub-nav-item a {
     border-left: 4px solid transparent;
 }
 .col-xs-3 {
-    width: 28%;
+    width: 30%;
     position: relative;
     float: left;
     min-height: 1px;
     padding-right: 0px;
-    padding-left: 60px;
+    padding-left:40px;
     margin-right: 0px;
     border-bottom: #66666600 0px solid; 
 }
 
 .col-xs-9 {
-    width: 72%;
+    width: 70%;
     float: left;
     position: relative;
     min-height: 1px;
