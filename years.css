@@ -16,16 +16,6 @@
     src: url('./fonts/江城律动宋.ttf') format('truetype');
     font-display: swap;
 }
- @media (max-width: 768px) {
-            /* Custom Styles */
-        ul.nav-tabs{
-            width: 180px;
-            margin-top: 10px;
-            border-radius: 4px;
-            /* border: 1px solid #ddd; */
-            /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); */
-        }
-    }
 * {
     margin: 0;
     padding: 0;
@@ -81,12 +71,22 @@ ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
 }
 /* Custom Styles */
 ul.nav-tabs{
-    width: 200px;
+    width: 180px;
     margin-top: 10px;
     border-radius: 4px;
     /* border: 1px solid #ddd; */
     /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); */
 }
+ @media (max-width: 768px) {
+            /* Custom Styles */
+        ul.nav-tabs{
+            width: 180px;
+            margin-top: 10px;
+            border-radius: 4px;
+            /* border: 1px solid #ddd; */
+            /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); */
+        }
+    }
 ul.nav-tabs li{
     margin: 0;
     /* border-top: 1px solid #ddd; */
@@ -120,7 +120,7 @@ ul.nav-tabs.affix{
     float: left;
     min-height: 1px;
     padding-right: 0px;
-    padding-left: 60px;
+    padding-left: 40px;
     margin-right: 0px;
     border-bottom: #66666600 0px solid; 
 }
@@ -274,4 +274,3 @@ ul.nav-tabs.affix{
     background: #bbdefb;
     color: #1565c0;
 }
-
